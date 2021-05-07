@@ -2,7 +2,7 @@
 # clean latex compile files
 
 # iterate over desired exts
-for ext in aux fdb_latexmk fls log synctex.gz; do
+for ext in aux fdb_latexmk fls log synctex.gz toc; do
 
     # find and delete all file with current ext
     find . -name *.$ext -delete
