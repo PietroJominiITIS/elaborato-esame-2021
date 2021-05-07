@@ -1,7 +1,7 @@
 # latex
-docs/*.aux
-docs/*.fls
-docs/*.log
-docs/*.synctex.gz
-docs/*.fdb_latexmk
-docs/*.pdf
+docs/**/*.aux
+docs/**/*.fls
+docs/**/*.log
+docs/**/*.synctex.gz
+docs/**/*.fdb_latexmk
+docs/**/*.pdf
