@@ -1,0 +1,42 @@
+.navbar {
+    height: 100%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-right: 1px solid black;
+}
+
+.navbar .picture {
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    background-color: lightseagreen;
+}
+
+.navbar .pages {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.navbar .pages a {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+}
+
+.navbar .pages a.selected {
+    font-weight: bold;
+}
+
+.page {
+    height: 100%;
+    width: calc(100% - 300px);
+    position: absolute;
+    right: 0;
+    top: 0;
+}

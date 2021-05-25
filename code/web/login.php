@@ -40,7 +40,8 @@
             <option value="VC">VC</option>
         </select>
 
-        <input name="password" type="password" placeholder="password" required>
+        <!-- TODO set password input to be "required" -->
+        <input name="password" type="password" placeholder="password">
         <input type="submit" value="&rarr;">
 
     </form>
