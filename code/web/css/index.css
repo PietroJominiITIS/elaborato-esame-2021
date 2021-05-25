@@ -1,3 +1,7 @@
+body {
+    display: flex;
+}
+
 .navbar {
     height: 100%;
     width: 300px;
@@ -24,8 +28,6 @@
 }
 
 .navbar .pages a {
-    text-decoration: none;
-    color: black;
     margin-top: 10px;
 }
 
@@ -33,10 +35,31 @@
     font-weight: bold;
 }
 
-.page {
+.tree {
+    padding-right: 1em;
+    border-right: 1px solid black;
+    overflow-y: auto;
     height: 100%;
-    width: calc(100% - 300px);
-    position: absolute;
-    right: 0;
-    top: 0;
+}
+
+.tree .case {
+    margin: 1em;
+}
+
+.tree .case .box {
+    margin-left: 1em;
+}
+
+.tree .case .box a {
+    margin-left: 1em;
+    display: block;
+    white-space: nowrap;
+}
+
+.tree .case .box a:hover {
+    font-weight: lighter;
+}
+
+.tree .case .box a.selected {
+    font-weight: bold;
 }
