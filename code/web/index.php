@@ -41,7 +41,7 @@ if ($_SESSION['location'] == null) {
                         <a href="?page=local&item=c" class="<?php  if ($_GET['item'] == 'c') echo 'selected' ?>">item c</a>
                     </div>
                     <div class="box">
-                        <div class="title">box1</div>
+                        <div class="title">box2</div>
                         <a href="?page=local&item=a1" class="<?php  if ($_GET['item'] == 'a1') echo 'selected' ?>">item a</a>
                         <a href="?page=local&item=b1" class="<?php  if ($_GET['item'] == 'b1') echo 'selected' ?>">item b</a>
                         <a href="?page=local&item=c1" class="<?php  if ($_GET['item'] == 'c1') echo 'selected' ?>">item c</a>
@@ -64,5 +64,6 @@ if ($_SESSION['location'] == null) {
         <?php } ?>
     </div>
 
+    <script src="./js/tree.js"></script>
 </body>
 </html>

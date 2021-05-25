@@ -48,6 +48,7 @@ body {
 
 .tree .case .box {
     margin-left: 1em;
+    cursor: pointer;
 }
 
 .tree .case .box a {
@@ -62,4 +63,8 @@ body {
 
 .tree .case .box a.selected {
     font-weight: bold;
+}
+
+.tree .case .box.collapsed a {
+    display: none;
 }
