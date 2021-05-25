@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\begin{document}
+
+\section{UNF}
+
+Court(\underline{Location}, Name, Password) \\
+Case(\underline{CaseId}, \textit{Court}, Crime, Year, \textit{Status}, \textit{Outcome}) \\
+Box(\underline{BoxId}, \textit{Court}, \textit{CaseId}, ArchivingDate) \\
+Evidence(\underline{EvidenceId}, \textit{BoxId}, Description, AcquisitionDate, Label) \\
+Paper(\underline{PaperId}, \textit{BoxId}, Place, Person, RegistrationDate) \\
+Report(\underline{ReportId}, \textit{BoxId}, Place, Date) \\
+Document(\underline{DocumentId}, \textit{BoxId}, \textit{Type}, Description, AcquisitionDate) \\
+Transition(\underline{TransitionId}, \textit{Status}, DepartureTime, ArrivalTime, Status, Driver)
+
+\subsection{Enums}
+CaseStatus(\underline{Name}, Description) \\
+CaseOutcome(\underline{Name}, Description) \\
+DocumentType(\underline{Name}, Description) \\
+TransitionStatus(\underline{Name}, Description)
+
+\section{1NF}
+\section{2NF}
+\section{3NF}
+\section{BCNF}
+
+\end{document}
