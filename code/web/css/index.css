@@ -35,11 +35,17 @@ body {
     font-weight: bold;
 }
 
-.tree {
-    padding-right: 1em;
-    border-right: 1px solid black;
-    overflow-y: auto;
+.middle-bar {
     height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middle-bar .tree {
+    overflow-y: auto;
+    padding-right: 1em;
 }
 
 .tree .case {
@@ -51,20 +57,26 @@ body {
     cursor: pointer;
 }
 
-.tree .case .box a {
+.middle-bar .tree .case .box a {
     margin-left: 1em;
     display: block;
     white-space: nowrap;
 }
 
-.tree .case .box a:hover {
+.middle-bar .tree .case .box a:hover {
     font-weight: lighter;
 }
 
-.tree .case .box a.selected {
+.middle-bar .tree .case .box a.selected {
     font-weight: bold;
 }
 
-.tree .case .box.collapsed a {
+.middle-bar .tree .case .box.collapsed a {
     display: none;
+}
+
+.middle-bar .add {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
 }

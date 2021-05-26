@@ -31,22 +31,26 @@ if ($_SESSION['location'] == null) {
     <div class="page">
         <?php  if ($_GET['page'] == 'local') { ?>
 
-            <div class="tree">
-                <div class="case">
-                    <div class="title">case</div>
-                    <div class="box">
-                        <div class="title">box1</div>
-                        <a href="?page=local&item=a" class="<?php  if ($_GET['item'] == 'a') echo 'selected' ?>">item a</a>
-                        <a href="?page=local&item=b" class="<?php  if ($_GET['item'] == 'b') echo 'selected' ?>">item b</a>
-                        <a href="?page=local&item=c" class="<?php  if ($_GET['item'] == 'c') echo 'selected' ?>">item c</a>
-                    </div>
-                    <div class="box">
-                        <div class="title">box2</div>
-                        <a href="?page=local&item=a1" class="<?php  if ($_GET['item'] == 'a1') echo 'selected' ?>">item a</a>
-                        <a href="?page=local&item=b1" class="<?php  if ($_GET['item'] == 'b1') echo 'selected' ?>">item b</a>
-                        <a href="?page=local&item=c1" class="<?php  if ($_GET['item'] == 'c1') echo 'selected' ?>">item c</a>
+            <div class="middle-bar">
+                <div class="tree">
+                    <div class="case">
+                        <div class="title">case</div>
+                        <div class="box">
+                            <div class="title">box1</div>
+                            <a href="?page=local&item=a" class="<?php  if ($_GET['item'] == 'a') echo 'selected' ?>">item a</a>
+                            <a href="?page=local&item=b" class="<?php  if ($_GET['item'] == 'b') echo 'selected' ?>">item b</a>
+                            <a href="?page=local&item=c" class="<?php  if ($_GET['item'] == 'c') echo 'selected' ?>">item c</a>
+                        </div>
+                        <div class="box">
+                            <div class="title">box2</div>
+                            <a href="?page=local&item=a1" class="<?php  if ($_GET['item'] == 'a1') echo 'selected' ?>">item a</a>
+                            <a href="?page=local&item=b1" class="<?php  if ($_GET['item'] == 'b1') echo 'selected' ?>">item b</a>
+                            <a href="?page=local&item=c1" class="<?php  if ($_GET['item'] == 'c1') echo 'selected' ?>">item c</a>
+                        </div>
                     </div>
                 </div>
+
+                <a href="./wip.html" class="add">+</a>
             </div>
 
         <?php } ?>
