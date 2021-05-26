@@ -63,7 +63,5 @@ if ($_SESSION['location'] == null) {
             queries page
         <?php } ?>
     </div>
-
-    <script src="./js/tree.js"></script>
 </body>
 </html>
