@@ -4,8 +4,10 @@
 ```
 ./
 ├─ docs/        Output docs
-│  └─ db/       Database related docs
+│  ├─ db/       Database related docs
+|  └─ images/   All images
 ├─ code/        All code
+│  └─ web/      Web related code
 ├─ resources/   Resources utilized
 └─ scripts/     Utility scripts
 ```
