@@ -22,6 +22,35 @@
     \item Non possono essere eliminati elementi singoli all'interno di una scatola, ma è necessario eliminare la scatola intera.
 \end{itemize}
 
+\section{Mapping}
+
+Court(\underline{Location}, name) \\
+Case(\underline{CaseId}, \textit{Court}, \textit{Status}, \textit{Outcome}, Crime, Year) \\
+CaseStatus(\underline{Name}, Description) \\
+CaseOutcome(\underline{Name}, Description) \\
+Box(\underline{BoxId}, \textit{Case}, \textit{Location}, ArchivingTime) \\
+DeletedBox(\underline{DeletionId}, \textit{Box}, Date)
+
+\noindent \\
+Evidence(\underline{EvidenceId}, \textit{Box}, Description, AcquisitionDate, Label) \\
+Paper(\underline{PaperId}, \textit{Box}, Place, Person, RegistrationDate) \\
+Report(\underline{ReportId}, \textit{Box}, Place, Date) \\
+Document(\underline{DocumentId}, \textit{Box}, \textit{Type}, Description, AcquisitionDate) \\
+DocumentType({\underline{Name})
+
+\noindent \\
+Transition(\underline{TransitionId}, \textit{Box}, \textit{From}, \textit{To}, \textit{Status}, DepartureTime, ArrivalTime) \\
+TransitionStatus(\underline{Name}, Description)
+
+\section{Normalizzazione}
+
+\subsection{Prima forma normale}
+Per rendere tutti i campi atomici sono necessarie le seguenti modifiche:
+\begin{enumerate}
+    \item Box.ArchivingTime $\rightarrow$ ArchivingDate, ArchivingTime
+    \item Paper.Person $\rightarrow$ CF, Nome, Cognome
+\end{enumerate}
+
 \newpage
 \section{Tabelle enumerabili}
 
@@ -74,26 +103,5 @@
         \end{tabular}
     \end{center}
 \end{table}
-
-\newpage
-\section{Mapping}
-
-Court(\underline{Location}, name) \\
-Case(\underline{CaseId}, \textit{Court}, \textit{Status}, \textit{Outcome}, Crime, Year) \\
-CaseStatus(\underline{Name}, Description) \\
-CaseOutcome(\underline{Name}, Description) \\
-Box(\underline{BoxId}, \textit{Case}, \textit{Location}, ArchivingTime) \\
-DeletedBox(\underline{DeletionId}, \textit{Box}, Date)
-
-\noindent \\
-Evidence(\underline{EvidenceId}, \textit{Box}, Description, AcquisitionDate, Label) \\
-Paper(\underline{PaperId}, \textit{Box}, Place, Person, RegistrationDate) \\
-Report(\underline{ReportId}, \textit{Box}, Place, Date) \\
-Document(\underline{DocumentId}, \textit{Box}, \textit{Type}, Description, AcquisitionDate) \\
-DocumentType({\underline{Name})
-
-\noindent \\
-Transition(\underline{TransitionId}, \textit{Box}, \textit{From}, \textit{To}, \textit{Status}, DepartureTime, ArrivalTime) \\
-TransitionStatus(\underline{Name}, Description)
 
 \end{document}
