@@ -35,6 +35,12 @@ body {
     font-weight: bold;
 }
 
+.navbar .logout {
+    width: 200px;
+    margin-top: auto;
+    margin-bottom: 1em;
+}
+
 .middle-bar {
     height: 100%;
     border-right: 1px solid black;
@@ -78,5 +84,5 @@ body {
 .middle-bar .add {
     width: 100%;
     text-align: center;
-    font-size: 2em;
+    margin-bottom: 1em;
 }

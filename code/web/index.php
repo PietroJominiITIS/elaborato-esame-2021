@@ -25,6 +25,9 @@ if ($_SESSION['location'] == null) {
             <a href="?page=transactions" class="<?php  if ($_GET['page'] == 'transactions') echo 'selected' ?>">Transactions</a>
             <a href="?page=queries" class="<?php  if ($_GET['page'] == 'queries') echo 'selected' ?>">Queries</a>
         </div>
+        <div class="logout">
+            <a href="./logout.php">Logout</a>
+        </div>
 
     </div>
 
