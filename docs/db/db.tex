@@ -11,11 +11,12 @@
 \begin{adjustwidth}{-50cm}{-50cm}
     \vspace{\fill}
     \begin{center}
-        \includegraphics[scale=0.55]{../images/er.png}
+        \includegraphics[scale=0.50]{../images/er.png}
     \end{center}
     \vspace{\fill}
 \end{adjustwidth}
 
+\newpage
 \section{Ipotesi}
 
 \begin{itemize}
@@ -48,10 +49,27 @@ TransitionStatus(\underline{Name}, Description)
 Per rendere tutti i campi atomici sono necessarie le seguenti modifiche:
 \begin{enumerate}
     \item Box.ArchivingTime $\rightarrow$ ArchivingDate, ArchivingTime
-    \item Paper.Person $\rightarrow$ CF, Nome, Cognome
+    \item Paper.Person $\rightarrow$ CF, Name, Surname
 \end{enumerate}
 
-\newpage
+\noindent
+Aggiungendo dunque la tabella ``Person(\underline{CF}, Name, Surname)" e modificando la tabella Paper in  ``Paper(\underline{PaperId}, \textit{Box}, Place, \textit{Person}, RegistrationDate)''
+
+\subsection{Seconda forma normale}
+
+Tutte le tabelle sono in seconda forma normale, in quanto non esistono campi non chiave
+che dipendono da una porzione di una chiave candidata.
+
+\subsection{Terza forma normale}
+
+Tutte le tabelle sono in terza forma normale, in quanto non esistono campi non chiave
+che dipendono da campi non chiave
+
+\subsection{Forma normale di Boyce-Codd}
+
+Tutte le tabelle sono nella forma normale di Boyce-Codd, in quanto tutti i
+campi determinanti sono superchiavi.
+
 \section{Tabelle enumerabili}
 
 \subsection{Transition status}
