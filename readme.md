@@ -7,7 +7,8 @@
 │  ├─ db/       Database related docs
 |  └─ images/   All images
 ├─ code/        All code
-│  └─ web/      Web related code
+│  ├─ web/      Web related code
+│  └─ sql/      Sql queries
 ├─ resources/   Resources utilized
 └─ scripts/     Utility scripts
 ```
