@@ -51,7 +51,8 @@
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
-                echo "<div>" . $row['DocumentID'] . ' - ' . $row['Type'] . "</div>";
+                $params = "page=item&type=document&case=" . $_GET['case'] . "&box=" . $_GET['box'] . "&id=" . $row['DocumentID'];
+                echo "<a href='../pages/index.php?$params'>" . $row['DocumentID'] . ' - ' . $row['Type'] . "</a>";
             }
         ?>
 
@@ -67,7 +68,8 @@
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
-                echo "<div>" . $row['EvidenceID'] . ' - ' . $row['Label'] . "</div>";
+                $params = "page=item&type=evidence&case=" . $_GET['case'] . "&box=" . $_GET['box'] . "&id=" . $row['EvidenceID'];
+                echo "<a href='../pages/index.php?$params'>" . $row['EvidenceID'] . ' - ' . $row['Label'] . "</a>";
             }
         ?>
 
@@ -83,7 +85,8 @@
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
-                echo "<div>" . $row['ReportID'] . ' - ' . $row['Place'] . "</div>";
+                $params = "page=item&type=report&case=" . $_GET['case'] . "&box=" . $_GET['box'] . "&id=" . $row['ReportID'];
+                echo "<a href='../pages/index.php?$params'>" . $row['ReportID'] . ' - ' . $row['Place'] . "</a>";
             }
         ?>
 
@@ -99,7 +102,8 @@
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
-                echo "<div>" . $row['PaperID'] . ' - ' . $row['PersonCF'] . "</div>";
+                $params = "page=item&type=paper&case=" . $_GET['case'] . "&box=" . $_GET['box'] . "&id=" . $row['PaperID'];
+                echo "<a href='../pages/index.php?$params'>" . $row['PaperID'] . ' - ' . $row['PersonCF'] . "</a>";
             }
         ?>
 
