@@ -93,6 +93,16 @@
     <!-- paper -->
     <div class="middlebar">
         <div class="title">Paper</div>
+
+        <?php
+            $cmd = $connection->prepare("SELECT PaperID, PersonCF FROM Paper WHERE Box = '" . $_GET['box'] . "'");
+            $cmd->execute();
+
+            foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                echo "<div>" . $row['PaperID'] . ' - ' . $row['PersonCF'] . "</div>";
+            }
+        ?>
+
         <a href="../pages/index.php?page=create&type=paper&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
     </div>
 

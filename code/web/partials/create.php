@@ -80,4 +80,19 @@
 
     <?php } ?>
 
+    <?php if ($_GET['type'] == 'paper') { 
+        if ($_GET['error'] != null) echo '<div class="error">Missing fields!</div>';
+    ?>
+
+        <form action="../api/create/paper.php?box=<?php echo $_GET['box'] ?>&case=<?php echo $_GET['case'] ?>" method="post">
+            <form action="">
+                <input type="text" name="place" placeholder="Place" value="<?php echo $_GET['place'] ?>">
+                <input type="text" name="cf" placeholder="CF" value="<?php echo $_GET['cf'] ?>">
+                <input type="date" name="date" value="<?php echo $_GET['date'] ?>">
+                <button value="submit">Create</button>
+            </form>
+        </form>
+
+    <?php } ?>
+
 </div>
