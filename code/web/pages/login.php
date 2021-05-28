@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 
 ?>
 
-    <form action="./login.php" method="post">
+    <form action="login.php" method="post">
 
         <select name="location" id="reg">
             <option value="AL">AL</option>
