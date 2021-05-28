@@ -13,7 +13,7 @@
 
     <?php require('../partials/navbar.php'); ?>
     <?php 
-        $pages = ['local', 'create', 'item'];
+        $pages = ['local', 'create', 'item', 'global'];
         $page = $_GET['page'];
         if ( in_array($page, $pages))
             require('../partials/' . $_GET['page'] . '.php');
