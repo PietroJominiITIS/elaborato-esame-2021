@@ -1,0 +1,27 @@
+.middlebar {
+    height: calc(100% - 2em);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+}
+
+.middlebar .title {
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em;
+}
+
+.middlebar a {
+    margin-bottom: 0.5em;
+}
+
+.middlebar a.selected {
+    font-weight: bold;
+}
+
+.middlebar .add {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}

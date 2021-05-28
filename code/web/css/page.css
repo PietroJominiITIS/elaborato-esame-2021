@@ -1,0 +1,9 @@
+.page {
+    padding: 1em;
+}
+
+.error {
+    color: red;
+    margin-bottom: 0.5em;
+    font-size: small;
+}
