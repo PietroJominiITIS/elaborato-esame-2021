@@ -1,8 +1,7 @@
 <?php require_once('../partials/utils/conn.php'); ?>
 <?php require_once('../partials/utils/auth.php'); ?>
-<link rel="stylesheet" href="../css/page.css">
 
-<div class="page">
+<div style="padding: 1em;">
 
     <?php if ($_GET['type'] == 'case') { 
         if ($_GET['error'] != null) echo '<div class="error">Missing fields!</div>';
