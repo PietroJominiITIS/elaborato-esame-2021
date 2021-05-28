@@ -1,0 +1,38 @@
+.queries {
+    padding: 1em;
+    flex-grow: 1;
+}
+
+.query {
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+.query .title {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.query code {
+    background-color: #f1f1f1;
+    padding: 0.5em;
+    border: 1px dashed black;
+    border-radius: 2px;
+    width: 100%;
+    font-size: 1em;
+}
+
+.query table {
+    margin-top: 1em;
+    border-collapse: collapse;
+}
+
+.queries table td,
+.queries table th {
+    border: 1px solid black;
+    padding: 0.5em 0.5em 0.25em 0.5em;
+    text-align: left;
+    font-size: 0.8em;
+}
