@@ -4,7 +4,8 @@
 
 <?php  
     $type = $_GET['type']; 
-    $id = $_GET['id'];    
+    $id = $_GET['id'];
+    $location = $_SESSION['location'];
 ?>
 
 <div class="middlebar">
@@ -18,10 +19,10 @@
     <div class="title">Fields</div>
 
     <?php 
-        if ($type == 'document') $query = "SELECT Type, Description, AcquisitionDate FROM Document WHERE DocumentID = '$id'";
-        elseif ($type == 'evidence') $query = "SELECT Label, Description, AcquisitionDate FROM Evidence WHERE EvidenceID = '$id'";
-        elseif ($type == 'report') $query = "SELECT Place, Date FROM Report WHERE ReportID = '$id'";
-        elseif ($type == 'paper') $query = "SELECT Place, PersonCF as CF, RegistrationDate FROM Paper WHERE PaperID = $id";
+        if ($type == 'document') $query = "SELECT Type, Description, AcquisitionDate FROM Document JOIN Box ON Document.Box = Box.BoxID WHERE Box.Location = '$location' and DocumentID = '$id'";
+        elseif ($type == 'evidence') $query = "SELECT Label, Description, AcquisitionDate FROM Evidence JOIN Box ON Evidence.Box = Box.BoxID WHERE Box.Location = '$location' and EvidenceID = '$id'";
+        elseif ($type == 'report') $query = "SELECT Place, Date FROM Report JOIN Box ON Report.Box = Box.BoxID WHERE Box.Location = '$location' and ReportID = '$id'";
+        elseif ($type == 'paper') $query = "SELECT Place, PersonCF as CF, RegistrationDate FROM Paper JOIN Box ON Paper.Box = Box.BoxID WHERE Box.Location = '$location' and PaperID = $id";
 
         $cmd = $connection->prepare($query);
         $cmd->execute();

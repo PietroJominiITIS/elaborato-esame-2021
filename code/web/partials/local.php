@@ -6,7 +6,7 @@
     <div class="title">Case</div>
 
     <?php
-        $cmd = $connection->prepare("SELECT CaseID, Crime FROM CaseT");
+        $cmd = $connection->prepare("SELECT CaseID, Crime FROM CaseT WHERE Court = '" . $_SESSION['location'] . "'");
         $cmd->execute();
 
         foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -25,7 +25,11 @@
         <div class="title">Box</div>
 
         <?php
-            $cmd = $connection->prepare("SELECT BoxID FROM Box WHERE CaseT = '" . $_GET['case'] . "'");
+            $cmd = $connection->prepare("
+                SELECT BoxID FROM Box 
+                JOIN CaseT ON Box.CaseT = CaseT.CaseId 
+                WHERE Court = '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "'
+            ");
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -47,7 +51,10 @@
         <div class="title">Document</div>
 
         <?php
-            $cmd = $connection->prepare("SELECT DocumentID, Type FROM Document WHERE Box = '" . $_GET['box'] . "'");
+            $cmd = $connection->prepare("
+                SELECT DocumentID, Type FROM Document
+                JOIN Box ON Document.Box = Box.BoxId
+                WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -64,7 +71,10 @@
         <div class="title">Evidence</div>
 
         <?php
-            $cmd = $connection->prepare("SELECT EvidenceID, Label FROM Evidence WHERE Box = '" . $_GET['box'] . "'");
+            $cmd = $connection->prepare("
+                SELECT EvidenceID, Label FROM Evidence
+                JOIN Box ON Evidence.Box = Box.BoxId
+                WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -81,7 +91,10 @@
         <div class="title">Report</div>
 
         <?php
-            $cmd = $connection->prepare("SELECT ReportID, Place FROM Report WHERE Box = '" . $_GET['box'] . "'");
+            $cmd = $connection->prepare("
+                SELECT ReportID, Place FROM Report
+                JOIN Box ON Report.Box = Box.BoxId
+                WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -98,7 +111,10 @@
         <div class="title">Paper</div>
 
         <?php
-            $cmd = $connection->prepare("SELECT PaperID, PersonCF FROM Paper WHERE Box = '" . $_GET['box'] . "'");
+            $cmd = $connection->prepare("
+                SELECT PaperID, PersonCF FROM Paper
+                JOIN Box ON Paper.Box = Box.BoxId
+                WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
