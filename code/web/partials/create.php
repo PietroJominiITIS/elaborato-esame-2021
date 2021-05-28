@@ -21,7 +21,31 @@
     ?>
 
         <form action="../api/create/box.php?case=<?php echo $_GET['case'] ?>" method="post">
-            <input type="date" name="date">
+            <input type="date" name="date" value="<?php echo $_GET['date'] ?>">
+            <button value="submit">Create</button>
+        </form>
+
+    <?php } ?>
+
+    <?php if ($_GET['type'] == 'document') { 
+        if ($_GET['error'] != null) echo '<div class="error">Missing fields!</div>';
+    ?>
+
+        <form action="../api/create/document.php?box=<?php echo $_GET['box'] ?>" method="post">
+            <select name="doctype">
+                <?php 
+                    $cmd = $connection->prepare("SELECT Name FROM DocumentType");
+                    $cmd->execute();
+
+                    foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                        $name = $row['Name'];
+                        $selected = ($row['Name'] == $_GET['doctype']) ? "selected" : "";
+                        echo "<option value='$name' $selected>$name</option>";
+                    }
+                ?>
+            </select>
+            <input type="text" name="description" placeholder="Description" value="<?php echo $_GET['description'] ?>">
+            <input type="date" name="date" value="<?php echo $_GET['date'] ?>">
             <button value="submit">Create</button>
         </form>
 

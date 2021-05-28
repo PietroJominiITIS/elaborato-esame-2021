@@ -43,8 +43,23 @@
 <?php if($_GET['box'] != null) { ?>
 
     <div class="middlebar">
-        <div class="title">Items</div>
-        <a href="#" class="add">+</a>
+        <div class="title">Document</div>
+        <a href="../pages/index.php?page=create&type=document&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
+    </div>
+
+    <div class="middlebar">
+        <div class="title">Evidence</div>
+        <a href="../pages/index.php?page=create&type=evidence&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
+    </div>
+
+    <div class="middlebar">
+        <div class="title">Report</div>
+        <a href="../pages/index.php?page=create&type=report&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
+    </div>
+
+    <div class="middlebar">
+        <div class="title">Paper</div>
+        <a href="../pages/index.php?page=create&type=paper&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
     </div>
 
 <?php } ?>
