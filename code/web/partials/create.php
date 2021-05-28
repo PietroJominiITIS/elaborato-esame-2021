@@ -51,4 +51,19 @@
 
     <?php } ?>
 
+    <?php if ($_GET['type'] == 'evidence') { 
+        if ($_GET['error'] != null) echo '<div class="error">Missing fields!</div>';
+    ?>
+
+        <form action="../api/create/evidence.php?box=<?php echo $_GET['box'] ?>&case=<?php echo $_GET['case'] ?>" method="post">
+            <form action="">
+                <input type="text" name="description" placeholder="Description" value="<?php echo $_GET['description'] ?>">
+                <input type="text" name="label" placeholder="Label" value="<?php echo $_GET['label'] ?>">
+                <input type="date" name="date" value="<?php echo $_GET['date'] ?>">
+                <button value="submit">Create</button>
+            </form>
+        </form>
+
+    <?php } ?>
+
 </div>
