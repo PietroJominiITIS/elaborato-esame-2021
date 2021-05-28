@@ -4,7 +4,7 @@
 
 <?php  
     $type = $_GET['type']; 
-    $id = $_GET['id'];    
+    $id = $_GET['id'];
 ?>
 
 <div class="middlebar">
@@ -36,5 +36,5 @@
 
 <div class="middlebar">
     <div class="title">Actions</div>
-    <a href="../pages/index.php?page=local&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>">Go back</a>
+    <a href="../pages/index.php?page=<?php echo $_GET['src'] ?>&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>">Go back</a>
 </div>
