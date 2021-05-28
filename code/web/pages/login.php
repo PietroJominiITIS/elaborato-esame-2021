@@ -11,35 +11,39 @@
 <?php
 
     session_start();
+    require_once('../partials/utils/conn.php');
 
-    if (isset($_POST['location'])) {
+    if ($_POST['location'] != null) {
 
-        # TODO check for correct login
-        if (true) {
+        $cmd = $connection->prepare("SELECT Password FROM Court WHERE Location = '" . $_POST['location'] . "'");
+        $cmd->execute();
+        $row = $cmd->fetch();
+
+        if ($_POST['password'] == $row['Password']) {
             $_SESSION['location'] = $_POST['location'];
             header('location: index.php');
+            die();
+        } else {
+            header('location: login.php?error=true');
+            die();
         }
     }
 
-    if (isset($_SESSION['location'])) {
+    if ($_SESSION['location'] != null) {
         header('location: index.php');
+        die();
     }
 
 ?>
 
     <form action="login.php" method="post">
 
-        <select name="location" id="reg">
-            <?php 
-                $db_host = 'localhost';
-                $db_name = 'elaborato';
-                $db_user = 'root';
-                $db_password = '';
+        <?php if ($_GET['error'] != null) { ?> <div class="error">Wrong password</div> <?php } ?>
 
-                $connection = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
+        <select name="location" id="reg">
+            <?php
                 $cmd = $connection->prepare("SELECT Location FROM Court");
                 $cmd->execute();
-
                 foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $court) {
                     echo "<option value=" . $court['Location'] . ">" . $court["Location"] . "</option>";
                 }

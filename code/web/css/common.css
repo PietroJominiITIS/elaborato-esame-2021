@@ -14,3 +14,9 @@ a {
 body {
     display: flex;
 }
+
+.error {
+    color: red;
+    margin-bottom: 0.5em;
+    font-size: small;
+}
