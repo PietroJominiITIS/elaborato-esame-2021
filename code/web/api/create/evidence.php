@@ -10,7 +10,7 @@ $date = $_POST['date'];
 $court = $_SESSION['location'];
 
 if ($description == null || $label == null || $date == null || $court == null || $box == null) {
-    header("location: ../../pages/index.php?page=create&type=evidence&description=$description&date=$date&label=$label&box=$box&error=true");
+    header("location: ../../pages/index.php?page=create&type=evidence&description=$description&date=$date&label=$label&box=$box&case=$case&error=true");
     die();
 }
 

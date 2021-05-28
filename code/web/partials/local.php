@@ -77,6 +77,16 @@
     <!-- report -->
     <div class="middlebar">
         <div class="title">Report</div>
+
+        <?php
+            $cmd = $connection->prepare("SELECT ReportID, Place FROM Report WHERE Box = '" . $_GET['box'] . "'");
+            $cmd->execute();
+
+            foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                echo "<div>" . $row['ReportID'] . ' - ' . $row['Place'] . "</div>";
+            }
+        ?>
+
         <a href="../pages/index.php?page=create&type=report&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
     </div>
 

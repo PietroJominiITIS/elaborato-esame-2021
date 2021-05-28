@@ -10,7 +10,7 @@ $date = $_POST['date'];
 $court = $_SESSION['location'];
 
 if ($description == null || $doctype == null || $date == null || $court == null || $box == null) {
-    header("location: ../../pages/index.php?page=create&type=document&description=$description&date=$date&doctype=$doctype&box=$box&error=true");
+    header("location: ../../pages/index.php?page=create&type=document&description=$description&date=$date&doctype=$doctype&box=$box&case=$case&error=true");
     die();
 }
 
