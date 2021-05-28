@@ -33,7 +33,7 @@ Box(\underline{BoxId}, \textit{Case}, \textit{Location}, ArchivingDate, Deletion
 
 \noindent \\
 Evidence(\underline{EvidenceId}, \textit{Box}, Description, AcquisitionDate, Label) \\
-Paper(\underline{PaperId}, \textit{Box}, Place, Person, RegistrationDate) \\
+Paper(\underline{PaperId}, \textit{Box}, Place, PersonCF, RegistrationDate) \\
 Report(\underline{ReportId}, \textit{Box}, Place, Date) \\
 Document(\underline{DocumentId}, \textit{Box}, \textit{Type}, Description, AcquisitionDate) \\
 DocumentType({\underline{Name})
@@ -45,14 +45,9 @@ TransitionStatus(\underline{Name}, Description)
 \section{Normalizzazione}
 
 \subsection{Prima forma normale}
-Per rendere tutti i campi atomici sono necessarie le seguenti modifiche:
-\begin{enumerate}
-    \item Box.ArchivingTime $\rightarrow$ ArchivingDate, ArchivingTime
-    \item Paper.Person $\rightarrow$ CF, Name, Surname
-\end{enumerate}
 
-\noindent
-Aggiungendo dunque la tabella ``Person(\underline{CF}, Name, Surname)" e modificando la tabella Paper in  ``Paper(\underline{PaperId}, \textit{Box}, Place, \textit{Person}, RegistrationDate)''
+Tutte le tabelle sono in seconda forma normale, in quanto tutti i campi sono in forma atomica e
+ogni tabella ha una chiave primaria definita.
 
 \subsection{Seconda forma normale}
 
