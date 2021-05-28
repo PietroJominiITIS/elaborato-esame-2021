@@ -53,7 +53,7 @@ if ($_SESSION['location'] == null) {
                     </div>
                 </div>
 
-                <a href="wip.html" class="add">+</a>
+                <a href="?page=create" class="add">+</a>
             </div>
 
         <?php } ?>
@@ -68,6 +68,93 @@ if ($_SESSION['location'] == null) {
 
         <?php  if ($_GET['page'] == 'queries') { ?>
             queries page
+        <?php } ?>
+
+        <?php  if ($_GET['page'] == 'create') { ?>
+
+            <div class="middle-bar create">
+                <a href="?page=create&type=case">Add case</a>
+                <a href="?page=create&type=box">Add box</a>
+                <a href="?page=create&type=document">Add document</a>
+                <a href="?page=create&type=evidence">Add evidence</a>
+                <a href="?page=create&type=report">Add report</a>
+                <a href="?page=create&type=paper">Add paper</a>
+            </div>
+
+            <div class="content">
+                <?php  if ($_GET['type'] == 'case') { ?>
+                    <form action="">
+                        <input type="text" name="name" placeholder="Crime">
+                        <input type="date">
+                        <button value="submit">Create</button>
+                    </form>
+                <?php } ?>
+
+                <?php  if ($_GET['type'] == 'box') { ?>
+                    <form action="">
+                        <select name="case">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                            <option value="d">d</option>
+                        </select>
+                        <input type="date">
+                        <button value="submit">Create</button>
+                    </form>
+                <?php } ?>
+
+                <?php if (in_array($_GET['type'], array("document", "evidence", "report", "paper"))) $box_sel_form = '
+                    <select name="case">
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                        <option value="d">d</option>
+                    </select>
+                    <select name="box">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                '; ?>
+
+                <?php  if ($_GET['type'] == 'document') { ?>
+                    <form action="">
+                        <?php echo $box_sel_form ?>
+                        <select name="type">
+                            <option value="image">Image</option>
+                            <option value="song">Song</option>
+                            <option value="boh">Boh</option>
+                        </select>
+                        <input type="text" name="description" placeholder="description">
+                        <input type="date">
+                        <button value="submit">Create</button>
+                    </form>
+                <?php } ?>
+
+                <?php  if ($_GET['type'] == 'evidence') { ?>
+                    <form action="">
+                        <?php echo $box_sel_form ?>
+                        <input type="text" name="description" placeholder="description">
+                        <input type="text" name="label" placeholder="label">
+                        <input type="date">
+                        <button value="submit">Create</button>
+                    </form>
+                <?php } ?>
+
+                <?php  if ($_GET['type'] == 'report') { ?>
+                    <form action="">
+                        <?php echo $box_sel_form ?>
+                        <input type="text" name="place" placeholder="place">
+                        <input type="date">
+                        <button value="submit">Create</button>
+                    </form>
+                <?php } ?>
+
+                <?php  if ($_GET['type'] == 'paper') { ?>
+                    WIP
+                <?php } ?>
+            </div>
+
         <?php } ?>
     </div>
 </body>

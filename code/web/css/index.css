@@ -12,6 +12,10 @@ body {
     border-right: 1px solid black;
 }
 
+.page {
+    display: flex;
+}
+
 .navbar .picture {
     width: 200px;
     height: 200px;
@@ -85,4 +89,33 @@ body {
     width: 100%;
     text-align: center;
     margin-bottom: 1em;
+}
+
+.middle-bar.create {
+    justify-content: left;
+}
+
+.middle-bar.create a {
+    margin: 0 1em 0 1em;
+}
+
+.middle-bar.create a:first-child {
+    margin: 1em 1em 0 1em;
+}
+
+.middle-bar.create a:last-child {
+    margin: 0 1em 1em 1em;
+}
+
+.content {
+    padding: 1em;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.content form * {
+    margin-top: 2px;
 }
