@@ -35,7 +35,7 @@
             }
         ?>
 
-    <a href="../pages/index.php?page=create&type=box&case=<?php echo $_GET['case'] ?>" class="add">+</a>
+        <a href="../pages/index.php?page=create&type=box&case=<?php echo $_GET['case'] ?>" class="add">+</a>
     </div>
 
 <?php } ?>
@@ -44,6 +44,16 @@
 
     <div class="middlebar">
         <div class="title">Document</div>
+
+        <?php
+            $cmd = $connection->prepare("SELECT DocumentID, Type FROM Document WHERE Box = '" . $_GET['box'] . "'");
+            $cmd->execute();
+
+            foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                echo "<div>" . $row['DocumentID'] . ' - ' . $row['Type'] . "</div>";
+            }
+        ?>
+
         <a href="../pages/index.php?page=create&type=document&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>" class="add">+</a>
     </div>
 
