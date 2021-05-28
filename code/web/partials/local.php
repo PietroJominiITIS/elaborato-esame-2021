@@ -35,7 +35,7 @@
             }
         ?>
 
-        <a href="#" class="add">+</a>
+    <a href="../pages/index.php?page=create&type=box&case=<?php echo $_GET['case'] ?>" class="add">+</a>
     </div>
 
 <?php } ?>

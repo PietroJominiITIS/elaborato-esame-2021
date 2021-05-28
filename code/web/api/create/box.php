@@ -2,7 +2,7 @@
 require_once('../../partials/utils/conn.php');
 require_once('../../partials/utils/auth.php');
 
-$case = $_POST['case'];
+$case = $_GET['case'];
 $date = $_POST['date'];
 $court = $_SESSION['location'];
 

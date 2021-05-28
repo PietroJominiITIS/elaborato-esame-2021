@@ -16,4 +16,15 @@
 
     <?php } ?>
 
+    <?php if ($_GET['type'] == 'box') { 
+        if ($_GET['error'] != null) echo '<div class="error">Missing fields!</div>';
+    ?>
+
+        <form action="../api/create/box.php?case=<?php echo $_GET['case'] ?>" method="post">
+            <input type="date" name="date">
+            <button value="submit">Create</button>
+        </form>
+
+    <?php } ?>
+
 </div>
