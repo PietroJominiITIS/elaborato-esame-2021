@@ -15,4 +15,4 @@ $query = "INSERT INTO Box(CaseT, Location, ArchivingDate) VALUES ('$case', '$cou
 $cmd = $connection->prepare($query);
 $cmd->execute();
 
-header('location: ../../pages/index.php?page=local');
+header("location: ../../pages/index.php?page=local&case=$case");

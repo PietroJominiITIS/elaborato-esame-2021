@@ -2,6 +2,7 @@
 require_once('../../partials/utils/conn.php');
 require_once('../../partials/utils/auth.php');
 
+$case = $_GET['case'];
 $box = $_GET['box'];
 $description = $_POST['description'];
 $doctype = $_POST['doctype'];
@@ -17,4 +18,4 @@ $query = "INSERT INTO Document(Box, Type, Description, AcquisitionDate) VALUES (
 $cmd = $connection->prepare($query);
 $cmd->execute();
 
-header('location: ../../pages/index.php?page=local');
+header("location: ../../pages/index.php?page=local&case=$case&box=$box");

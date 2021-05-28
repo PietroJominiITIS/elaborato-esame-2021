@@ -31,7 +31,7 @@
         if ($_GET['error'] != null) echo '<div class="error">Missing fields!</div>';
     ?>
 
-        <form action="../api/create/document.php?box=<?php echo $_GET['box'] ?>" method="post">
+        <form action="../api/create/document.php?box=<?php echo $_GET['box'] ?>&case=<?php echo $_GET['case'] ?>" method="post">
             <select name="doctype">
                 <?php 
                     $cmd = $connection->prepare("SELECT Name FROM DocumentType");
