@@ -1,6 +1,7 @@
 .queries {
     padding: 1em;
     flex-grow: 1;
+    overflow-y: auto;
 }
 
 .query {
@@ -15,12 +16,12 @@
     margin-bottom: 0.5em;
 }
 
-.query code {
+.query pre {
     background-color: #f1f1f1;
     padding: 0.5em;
     border: 1px dashed black;
     border-radius: 2px;
-    width: 100%;
+    width: calc(100% - 1em);
     font-size: 1em;
 }
 
@@ -35,8 +36,4 @@
     padding: 0.5em 0.5em 0.25em 0.5em;
     text-align: left;
     font-size: 0.8em;
-}
-
-.query .description {
-    margin-bottom: 1em;
 }
