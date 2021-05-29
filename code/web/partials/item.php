@@ -37,6 +37,5 @@
 <div class="middlebar">
     <div class="title">Actions</div>
     <a href="../pages/wip.html">Edit</a>
-    <a href="../pages/wip.html">Delete</a>
     <a href="../pages/index.php?page=<?php echo $_GET['src'] ?>&case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>">Go back</a>
 </div>
