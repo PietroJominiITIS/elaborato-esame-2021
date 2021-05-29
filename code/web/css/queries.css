@@ -12,7 +12,7 @@
 
 .query .title {
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 .query code {
@@ -35,4 +35,8 @@
     padding: 0.5em 0.5em 0.25em 0.5em;
     text-align: left;
     font-size: 0.8em;
+}
+
+.query .description {
+    margin-bottom: 1em;
 }

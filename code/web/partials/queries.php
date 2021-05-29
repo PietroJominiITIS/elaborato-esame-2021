@@ -3,6 +3,9 @@
 <div class="queries">
     <div class="query">
         <div class="title">Select all</div>
+        <div class="description">
+            Per ogni tribunale il numero di scatole presenti, quelle trasferite e quelle distrutte l'anno precedente l'attuale.
+        </div>
         <code>SELECT * FROM Document JOIN Box ON Document.Box = Box.BoxID</code>
         <table>
             <tr>
