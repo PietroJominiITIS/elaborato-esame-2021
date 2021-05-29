@@ -60,7 +60,8 @@
     <?php
         if ($_GET["yes"] != null) {
             // TODO 'Status' should be 'Accepted', medium set later to 'Transitioning' and 'Completed'
-            $query = "UPDATE Transition SET Status = 'Completed' WHERE TransitionId = " . $_GET['accept'];
+            // TODO Arrival and Departure dates
+            $query = "UPDATE Transition SET Status = 'Completed', ArrivalTime = '' WHERE TransitionId = " . $_GET['accept'];
             $connection->prepare($query)->execute();
 
             // TODO And this should happen only when transition in 'Completed'
@@ -77,5 +78,21 @@
             header('location: ?page=transitions');
         }
     ?>
+
+<?php } else { ?>
+
+    <div class="middlebar">
+        <div class="title">History</div>
+        <?php
+            $court = $_SESSION["location"];
+            $query = "SELECT ToL, FromL, Box FROM Transition WHERE (ToL = '$court' OR FromL = '$court') AND Status = 'Completed'";
+            $cmd = $connection->prepare($query);
+            $cmd->execute();
+
+            foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                echo "<div>Box " . $row['Box'] . ' from ' . $row['FromL'] . ' to ' . $row['ToL'] . "</div>";
+            }
+        ?>
+    </div>
 
 <?php } ?>
