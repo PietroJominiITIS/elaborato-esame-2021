@@ -6,7 +6,7 @@
     <div class="pages">
         <a href="?page=local" class="<?php  if ($_GET['page'] == 'local') echo 'selected' ?>">Local warehouse</a>
         <a href="?page=global" class="<?php  if ($_GET['page'] == 'global') echo 'selected' ?>">Global catalog</a>
-        <a href="?page=transactions" class="<?php  if ($_GET['page'] == 'transactions') echo 'selected' ?>">Transactions</a>
+        <a href="?page=transitions" class="<?php  if ($_GET['page'] == 'transitions') echo 'selected' ?>">Transactions</a>
         <a href="?page=queries" class="<?php  if ($_GET['page'] == 'queries') echo 'selected' ?>">Queries</a>
     </div>
     <div class="logout">

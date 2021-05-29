@@ -16,6 +16,21 @@
         }
     ?>
 
+    <?php
+        $cmd = $connection->prepare("
+            SELECT DISTINCT CaseID, Crime 
+            FROM Box JOIN CaseT ON Box.CaseT = CaseT.CaseId
+            WHERE Box.Location = '" . $_SESSION['location'] . "' AND Box.Location <> CaseT.Court
+        ");
+        $cmd->execute();
+
+        foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $selected = ($row["CaseID"] == $_GET['case']) ? "selected" : "";
+            $params = "?page=local&case=" . $row["CaseID"];
+            echo "<a class='" . $selected . "' href='$params'>" . $row['CaseID'] . ' - ' . $row['Crime'] . "</a>";
+        }
+    ?>
+
     <a href="../pages/index.php?page=create&type=case" class="add">+</a>
 </div>
 
@@ -28,7 +43,7 @@
             $cmd = $connection->prepare("
                 SELECT BoxID FROM Box 
                 JOIN CaseT ON Box.CaseT = CaseT.CaseId 
-                WHERE Court = '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "'
+                WHERE Location = '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "'
             ");
             $cmd->execute();
 

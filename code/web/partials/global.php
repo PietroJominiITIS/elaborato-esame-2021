@@ -6,7 +6,11 @@
     <div class="title">Case</div>
 
     <?php
-        $cmd = $connection->prepare("SELECT CaseID, Crime FROM CaseT WHERE Court <> '" . $_SESSION['location'] . "'");
+        $cmd = $connection->prepare("
+            SELECT DISTINCT CaseID, Crime 
+            FROM Box JOIN CaseT ON Box.CaseT = CaseT.CaseId
+            WHERE Box.Location <> '" . $_SESSION['location'] . "'
+        ");
         $cmd->execute();
 
         foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -26,16 +30,16 @@
 
         <?php
             $cmd = $connection->prepare("
-                SELECT BoxID FROM Box 
+                SELECT BoxID, Location FROM Box 
                 JOIN CaseT ON Box.CaseT = CaseT.CaseId 
-                WHERE Court <> '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "'
+                WHERE Location <> '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "'
             ");
             $cmd->execute();
 
             foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
                 $selected = ($row["BoxID"] == $_GET['box']) ? "selected" : "";
                 $params = "?page=global&case=" . $_GET["case"] . '&box=' . $row["BoxID"];
-                echo "<a class='" . $selected . "' href='$params'>" . $row['BoxID'] . "</a>";
+                echo "<a class='" . $selected . "' href='$params'>" . $row['BoxID'] . " - " . $row["Location"] . "</a>";
             }
         ?>
 
@@ -131,4 +135,8 @@
     </div>
 </div>
 
+<div class="middlebar">
+    <div class="title">Actions</div>
+    <a href="../api/import.php?case=<?php echo $_GET['case'] ?>&box=<?php echo $_GET['box'] ?>">Request import</a>
+</div>
 <?php } ?>
