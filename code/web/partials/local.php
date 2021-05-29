@@ -20,7 +20,7 @@
         $cmd = $connection->prepare("
             SELECT DISTINCT CaseID, Crime 
             FROM Box JOIN CaseT ON Box.CaseT = CaseT.CaseId
-            WHERE Box.Location = '" . $_SESSION['location'] . "' AND Box.Location <> CaseT.Court
+            WHERE Box.Location = '" . $_SESSION['location'] . "' AND Box.Location <> CaseT.Court AND Box.DeletionDate IS NULL
         ");
         $cmd->execute();
 
@@ -43,7 +43,7 @@
             $cmd = $connection->prepare("
                 SELECT BoxID FROM Box 
                 JOIN CaseT ON Box.CaseT = CaseT.CaseId 
-                WHERE Location = '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "'
+                WHERE Location = '" . $_SESSION['location'] . "' and CaseT = '" . $_GET['case'] . "' AND Box.DeletionDate IS NULL
             ");
             $cmd->execute();
 
@@ -72,7 +72,8 @@
                 $cmd = $connection->prepare("
                     SELECT DocumentID, Type FROM Document
                     JOIN Box ON Document.Box = Box.BoxId
-                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
+                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "' AND Box.DeletionDate IS NULL
+                ");
                 $cmd->execute();
 
                 foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -92,7 +93,8 @@
                 $cmd = $connection->prepare("
                     SELECT EvidenceID, Label FROM Evidence
                     JOIN Box ON Evidence.Box = Box.BoxId
-                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
+                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'  AND Box.DeletionDate IS NULL
+                ");
                 $cmd->execute();
 
                 foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -112,7 +114,8 @@
                 $cmd = $connection->prepare("
                     SELECT ReportID, Place FROM Report
                     JOIN Box ON Report.Box = Box.BoxId
-                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
+                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'  AND Box.DeletionDate IS NULL
+                ");
                 $cmd->execute();
 
                 foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -132,7 +135,8 @@
                 $cmd = $connection->prepare("
                     SELECT PaperID, PersonCF FROM Paper
                     JOIN Box ON Paper.Box = Box.BoxId
-                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'");
+                    WHERE Location = '" . $_SESSION['location'] . "' and Box = '" . $_GET['box'] . "'  AND Box.DeletionDate IS NULL
+                ");
                 $cmd->execute();
 
                 foreach ($cmd->fetchAll(PDO::FETCH_ASSOC) as $row) {
@@ -145,4 +149,20 @@
         </div>
     </div>
 </div>
+
+<?php 
+    $cmd = $connection->prepare("SELECT YEAR(ArchivingDate) AS ArchivingDate FROM Box WHERE BoxId = " . $_GET['box']);
+    $cmd->execute();
+    $archivingDate = $cmd->fetch()['ArchivingDate'];
+
+    if (date("Y") - $archivingDate >= 50) { 
+?>
+
+    <div class="middlebar">
+        <div class="title">Actions</div>
+        <a href="../api/delete/box.php?box=<?php echo $_GET['box'] ?>&case=<?php echo $_GET['case'] ?>">Destroy</a>
+    </div>
+
+<?php } ?>
+
 <?php } ?>
