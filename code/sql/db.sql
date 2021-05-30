@@ -75,6 +75,16 @@ CREATE TABLE `Court` (
   PRIMARY KEY (`Location`)
 );
 
+INSERT INTO `Court` (`Name`, 'Password') VALUES
+  ('AL', 'AL'),
+  ('AT', 'AT'),
+  ('BI', 'BI'),
+  ('CN', 'CN'),
+  ('NO', 'NO'),
+  ('TO', 'TO'),
+  ('VB', 'VB'),
+  ('VC', 'VC');
+
 
 -- TABLE Document
 
