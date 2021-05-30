@@ -132,4 +132,41 @@ WHERE ItemsCount = (
             </tr>
         </table>
     </div>
+    <div class="query">
+        <div class="title">Elenco dei materiali che non hanno mai lasciato il tribunale X.</div>
+<pre>
+-- Questa query è impossibile da fare su tutti i tipo di materiale contemporaneamente, ma può essere fatta con
+-- 4 interrogazioni diverse. Ad esempio, la seguente è quella necessaria per ottenere l'elenco dei documenti
+-- che non hanno mai lasciato il tribunale X
+
+SELECT DocumentId, Document.Box, Type, Description, AcquisitionDate FROM Document
+JOIN Box ON Box.BoxId = Document.Box
+LEFT JOIN Transition ON Box.BoxId = Transition.Box
+WHERE Transition.FromL IS NULL AND Box.Location = 'X'</pre>
+            <table>
+                <tr>
+                    <th>DocumentId</th>
+                    <th>Box</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>AcquisitionDate</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>13</td>
+                    <td>Letter</td>
+                    <td>Document one</td>
+                    <td>2021-05-05</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>6</td> 	<td>14</td>
+                    <td>Letter</td>
+                    <td>Document two</td>
+                    <td>2021-05-12</td>
+                    <td>X</td>
+                </tr>
+            </table>
+    </div>
 </div>
