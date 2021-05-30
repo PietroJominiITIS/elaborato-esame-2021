@@ -165,4 +165,11 @@
 
 <?php } ?>
 
+<?php } elseif ($_GET['case'] != null) { ?>
+
+    <div class="middlebar">
+        <div class="title">Actions</div>
+        <a href="../pages/wip.html">Update</a>
+    </div>
+
 <?php } ?>
