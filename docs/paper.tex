@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -6,6 +6,9 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{hyperref}
+\usepackage[margin=3cm]{geometry}
 
 % meta
 \title{Sistema di distribuzione logistica per Tribunali}
@@ -19,11 +22,9 @@
 \pagenumbering{gobble}
 \maketitle
 \newpage
-\pagenumbering{arabic}
-
 \tableofcontents
-
 \newpage
+\pagenumbering{arabic}
 
 \section{Struttura dell'elaborato}
 \subsection{Suddivisione in cartelle}
@@ -38,9 +39,12 @@ Il codice è diviso in cartelle per linguaggio di programmazione. La cartella ``
 
 Le sezioni nel range $[2, 5]$ sono lo svolgimento della sezione 1 della traccia di svolgimento, mentre le sezioni dalla 6 sono in risposta alle sezioni successive.
 
+\subsection{Schemi}
+
+Gli schemi utilizzati sono stati realizzati tramite l'applicazione web \url{https://app.diagrams.net/} e renderizzati in png.
 
 \newpage
 \input{network/network.tex}
-
+\input{db/db.tex}
 
 \end{document}
