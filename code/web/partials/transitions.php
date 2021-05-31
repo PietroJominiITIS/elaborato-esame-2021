@@ -61,7 +61,7 @@
         if ($_GET["yes"] != null) {
             // TODO 'Status' should be 'Accepted', medium set later to 'Transitioning' and 'Completed'
             // TODO Arrival and Departure dates
-            $query = "UPDATE Transition SET Status = 'Completed', ArrivalTime = '' WHERE TransitionId = " . $_GET['accept'];
+            $query = "UPDATE Transition SET Status = 'Completed', ArrivalTime = CURDATE() WHERE TransitionId = " . $_GET['accept'];
             $connection->prepare($query)->execute();
 
             // TODO And this should happen only when transition in 'Completed'
