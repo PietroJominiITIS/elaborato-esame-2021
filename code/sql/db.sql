@@ -27,8 +27,8 @@ CREATE TABLE 'CaseOutcome' (
 );
 
 INSERT INTO 'CaseOutcome' ('Name', 'Description') VALUES
-  ('Condemned', ''),
-  ('Acquitted', '');
+  ('Condemned', 'The accused has been condamned'),
+  ('Acquitted', 'The accused has been aquitted');
 
 
 -- TABLE CaseStatus
@@ -41,11 +41,11 @@ CREATE TABLE 'CaseStatus' (
 );
 
 INSERT INTO 'CaseStatus' ('Name', 'Description') VALUES
-  ('Preliminary', ''),
-  ('First', ''),
-  ('Second', ''),
-  ('Canceled', ''),
-  ('Prescribed', '');
+  ('Preliminary', 'Preliminary stage'),
+  ('First', 'akes place before the court'),
+  ('Second', 'Takes place before the court of appeal'),
+  ('Third', 'Takes place in cassation'),
+  ('Canceled', 'The case is no longer active');
 
 
 -- TABLE CaseT
@@ -78,14 +78,14 @@ CREATE TABLE 'Court' (
 );
 
 INSERT INTO 'Court' ('Name', 'Password') VALUES
-  ('AL', 'AL'),
-  ('AT', 'AT'),
-  ('BI', 'BI'),
-  ('CN', 'CN'),
-  ('NO', 'NO'),
-  ('TO', 'TO'),
-  ('VB', 'VB'),
-  ('VC', 'VC');
+  ('AL', 'e892e780304dc3ef15e69b9f3fed3669'),
+  ('AT', 'fa868488740aa25870ced6b9169951fb'),
+  ('BI', 'af7f0273997b9b290bd7c57aa19f36c2'),
+  ('CN', '1c2903397d8833382673bab22aa8b937'),
+  ('NO', 'c2f3f489a00553e7a01d369c103c7251'),
+  ('TO', '304917b92bc3dc0953aab8356f74c02c'),
+  ('VB', '952e108649eee4b686c2431edc8fcd17'),
+  ('VC', 'b7128ad1d9b838be26989d1037a8c987');
 
 
 -- TABLE Document
