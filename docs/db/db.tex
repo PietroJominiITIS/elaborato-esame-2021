@@ -167,6 +167,9 @@ Manca la possibilità di modificare i campi, la quale permetterebbe di fare uso 
 \paragraph{Informazioni aggiuntive}
 Al contrario che per gli items, non è al momento possibile vedere informazioni agginutive sui casi e sulle scatole.
 
+\paragraph{Sanificazione delle queries SQL}
+Non è stata implementata una corretta sanificazinoe delle queries SQL (approfondite alla sezione 4.3).
+
 \subsection{Grafica}
 L'aspetto grafico è stato curato con HTML e CSS personalizzato, consultabile nella cartella ``code/web/css''.
 
@@ -179,3 +182,5 @@ Per poter implementare un sistema di paginazione che permettesse la non ripetizi
         require('../partials/' . $_GET['page'] . '.php');
 \end{lstlisting}
 che permette di indicare la pagina desiderata tramite il parametro URI ``page'' (eg. ?page=local) e, se la pagina richiesta è presente nella lista di pagine aturizzate, viene renderizzata. Ciò permette inoltre ai browser moderni applicare solo le nuove modifiche alla pagina HTML, velocizzando il caricamente e rendendo l'esperienza per l'utente più piacevole.
+
+È necessario il controllo sulle pagine autorizzate in modo che l'utente non possa accedere a files arbitari sul disco.
