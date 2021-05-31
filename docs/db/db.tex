@@ -170,6 +170,18 @@ Al contrario che per gli items, non è al momento possibile vedere informazioni 
 \paragraph{Sanificazione delle queries SQL}
 Non è stata implementata una corretta sanificazinoe delle queries SQL (pratica approfondita alla sezione 4.3).
 
+\paragraph{Lifecycle delle transazioni}
+Le transazioni hanno un lifecycle definito dal seguente schema:
+\begin{center}
+    \includegraphics[scale=0.8]{images/tl.png}
+\end{center}
+ma non è stato implementata l'interfaccia per la notifica dell'inizio e fine del trasporto fisico, quindi lo stato della transazione salta l'inizio e la fine per diventare direttamente completato una volta accettato dal tribunale B:
+\begin{center}
+    \includegraphics[scale=0.8]{images/tl1.png}
+\end{center}
+
+Manca anche la possibilità di negare un trasferimento: al momento l'unica opzione, nel caso non lo si desideri accettare, è lasciarlo in stato di richiesta.
+
 \subsection{Grafica}
 L'aspetto grafico è stato curato con HTML e CSS personalizzato, consultabile nella cartella ``code/web/css''.
 
