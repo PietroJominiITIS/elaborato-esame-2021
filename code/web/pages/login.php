@@ -9,9 +9,9 @@
 <body>
 
 <?php
-
     session_start();
     require_once('../partials/utils/conn.php');
+    require_once('../partials/utils/md5.php');
 
     if ($_POST['location'] != null) {
 
@@ -19,7 +19,7 @@
         $cmd->execute();
         $row = $cmd->fetch();
 
-        if ($_POST['password'] == $row['Password']) {
+        if (md5_digest($_POST['password']) == $row['Password']) {
             $_SESSION['location'] = $_POST['location'];
             header('location: index.php');
             die();

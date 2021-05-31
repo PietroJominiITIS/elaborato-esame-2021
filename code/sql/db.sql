@@ -70,7 +70,9 @@ CREATE TABLE 'CaseT' (
 CREATE TABLE 'Court' (
   'Location' varchar(2) NOT NULL,
   'Name' text NOT NULL,
-  'Password' varchar(20) NOT NULL,
+
+  -- len 32 so that it can hold an md5 hased password
+  'Password' varchar(32) NOT NULL,
 
   PRIMARY KEY ('Location')
 );
