@@ -10,7 +10,7 @@ HTTP is an application-level protocol and stands for ``HyperText Trasfer Protoco
 
 \subsubsection{Use cases}
 
-Hyptertext documents are text documents that arelinked togherer by links.The standard in the modern web is the HTML markup language, even tho nowadays is common to utilize high-level programming languages to build HTML documents, like ECMAScript(Javascript), Python or PHP.
+Hyptertext documents are text documents that are linked togheter by links.The standard in the modern web is the HTML markup language, even tho nowadays is common to utilize high-level programming languages to build HTML documents, like ECMAScript(Javascript), Python or PHP.
 
 Browsers are then responsible for rendering the desired hyptertex document in such a way that it is comprehensible to the end user, often enriching the experience with custom styles or scrips.
 
@@ -32,10 +32,10 @@ The HTTP header is divided in lines, separated by the escape characters ``cr lf'
 Each line is divided in fields by spaces.
 
 \paragraph{First line}
-The first line depends of the kind of message: the header be used both to send requests and responses. When sending a request the fields are ``method'', ``url'' and ``version''. When sending a response the fields are ``version'', ``status code'' and ``phrase''.
+The first line depends of the kind of message: the header is used both to wrap requests and responses. When sending a request the fields are ``method'', ``url'' and ``version''. When sending a response the fields are ``version'', ``status code'' and ``phrase''.
 
 \paragraph{Header lines}
-The followind $n$ lines, until a blank noe is met, forms the ``header lines''. Here each line hold a header value in the form ``Key: Value''. There is a large amount of ``header fields'', both standard and non standard, which fullfills a larga amount of tasks ranging from authentication to cookies.
+The followind $n$ lines, until a blank one is met, forms the ``header lines''. Here each line holds a header value in the form ``Key: Value''. There is a large amount of ``header fields'', both standard and non standard, which fullfills a large amount of tasks ranging from authentication to cookies.
 
 \paragraph{Body}
 Separated from the header lines by a blank line, the body contains the transferred payload, eg. the HTML content.
@@ -55,7 +55,7 @@ The first line of the HTTP request contains the field ``method''. This field tel
         \bottomrule
     \end{tabular}
 \end{center}
-Those methods are heavily used when using the HTTP protocol for machine-to-machine comunications (eg. APIs).
+Those methods are heavily used when working with the HTTP protocol for machine-to-machine comunications (eg. APIs).
 
 \paragraph{Status}
 The first line of the HTTP response contains the fields ``status code'' and ``phrase'' which serves the utility of communicating the status of the response. The field ``phrase'' contains the description of the given ``status code''. Status codes are divided in the following groups:
@@ -107,7 +107,7 @@ The SSH Connection Protocol allows multiple channels to communicate over the sam
 encrypted tunnel.
 
 \subsubsection{Encrypted tunnel}
-SSH Creates encrypted tunnels (connections) where the communication between the two hosts is secure. Those are the steps it uses to do such:
+SSH Creates encrypted tunnels (connections) where the communication between the two hosts is secure. These are the steps it uses to do such:
 \begin{enumerate}
     \item Both the server and clients have a public and private keys, used for an asymmetric cryptographic algorithm (eg. RSA).
     \item The client initiates the connection by contacting the server.
@@ -131,7 +131,7 @@ Il protocollo TTL (Transport Layer Security) è un protocollo che si pone tra il
 È internamente diviso in due protocolli:
 
 \paragraph{Handshake}
-Il protocollo di handshake gestisce la fase di negoziazione in cui il client e il server decidono l'algoritmo di cifratura e quello di scambio delle chiavi. Dopo la negoziazione il client e il server procedono allo scambio delle chiavi. Viene usato un'algoritmo simmetrico per la cifratura dei messaggi e uno asimmetrico per lo scambio della chiave simmetrica, ad esempio RSA (approfondito alla sezione 4.2).
+Il protocollo di handshake gestisce la fase di negoziazione in cui il client e il server concordano l'algoritmo di cifratura e quello di scambio delle chiavi. Dopo la negoziazione il client e il server procedono allo scambio delle chiavi. Viene usato un'algoritmo simmetrico per la cifratura dei messaggi e uno asimmetrico per lo scambio della chiave simmetrica, ad esempio RSA.
 
 \paragraph{Record protocol}
 Il record protocol gestisce la cifratura dei messaggi secondo il seguente schema:
@@ -152,11 +152,11 @@ In questo modo i client HTTPS possono verificare che le chiavi pubbliche scambia
 
 \subsubsection{Sessione}
 
-L'autenticazione dell'utente nella pagina web è permessa dalla presenza di una ``sessione'', che permette al server di avere dei dati mappati ad un client specifico.
+L'autenticazione dell'utente nella pagina web è permessa grazie alla presenza di una ``sessione'', che permette al server di avere dei dati mappati ad un client specifico.
 
-Questo è a sua volta possibile grazie al cookies, dati che i client HTTP salvano per ogni dominio in modo che il dominio possa accedervi e modificarli. Il server salva dunque nei cookies del client una chiave che utilizza per indicizzare i dati che devono essere associati ad un client particolare.
+Questo è a sua volta possibile grazie al cookies, dati che i client HTTP salvano per ogni dominio in modo che il server possa accedervi e modificarli. Il server salva dunque nei cookies del client una chiave che utilizza per indicizzare i dati che devono essere associati ad un client particolare.
 
-In PHP (il linguaggio utilizzato per la codifica dell'applicazione web) la sessione si può utilizzare in questo modo:
+In PHP (il linguaggio utilizzato per la codifica dell'applicazione web) la sessione si utilizza in questo modo:
 \lstset{language=php}
 \begin{lstlisting}
     // Inizializza la sessione e crea la
@@ -176,7 +176,7 @@ L'utente è autenticato salvando il valore `Location', la chiave unica di due le
 Ogni volta che una pagina viene aperta viene controllato il campo e, se esso è vuoto, si redirige la request alla pagina di login: in questo modo le pagine diverse da quella di login sono inaccessibili ad ogni utente non autenticato.
 
 \paragraph{Autenticità dell'utente}
-Nella codificazione dell'applicazione web il controllo dell'autenticità dell'utente è permesso dalla presenza di una password, offuscata da un algoritmo di hashing (vedi sezione 4.1). In una produzione finalizzata ad un utilizzo reale sarebbe più sicuro avere della macchine, posizionate in ogni magazzino, che forniscono l'unico accesso al server tramite l'utilizzo di un firewall. Può essere implementata anche l'autenticazione della persona fisica che utilizza il servizio tramite una chiave digitale salvata su un supporto fisico.
+Nella codificazione dell'applicazione web il controllo dell'autenticità dell'utente è permesso dalla presenza di una password, offuscata da un algoritmo di hashing (vedi sezione 5.1). In una produzione finalizzata ad un utilizzo reale sarebbe più sicuro avere della macchine, posizionate in ogni magazzino, che forniscono l'unico accesso al server tramite l'utilizzo di un firewall. Può essere implementata anche l'autenticazione della persona fisica che utilizza il servizio tramite una chiave digitale salvata su un supporto fisico.
 
 \subsection{SQL injections}
 
@@ -194,7 +194,7 @@ costruita per aggiungere un record alla tabella `Report'. I campi `\textdollar p
 
 Immaginando ora che l'utente inserisca nel campo `\textdollar place' la stringa
 \begin{verbatim}
-    a', '2021-05-30'); DROP TABLE Report;
+    ', '2021-05-30'); DROP TABLE Report;
 \end{verbatim}
 la query risultante sarà:
 \lstset{language=sql, showstringspaces=false}
@@ -202,12 +202,12 @@ la query risultante sarà:
     INSERT INTO
         Report(Box, Place, Date) 
     VALUES 
-        ('$box','a', '2021-05-30'); 
+        ('$box','', '2021-05-30'); 
     DROP TABLE Report;
         ', '$date')
 \end{lstlisting}
 
-La query costruita con la stringa inserita dall'utente con obiettivi malevoli ha il disastroso effetto di eliminare completamente la table `Report'. L'ultima riga della query inserita genera errore, ma la maggior parde dei server SQL eseguono comunque il codice precedente all'errore, e in caso contrario è facile immaginare come inserire una stringa che non generi errori.
+La query costruita con la stringa inserita dall'utente con obiettivi malevoli ha il disastroso effetto di eliminare completamente la table `Report'. L'ultima riga della query inserita genera errore, ma la maggior parte dei server SQL eseguono comunque il codice precedente all'errore, e in caso contrario è facile immaginare come inserire una stringa che non generi errori.
 
 Per evitare attacchi di questo tipo è necessario trattare i dati ottenuti in input dall'utente con la dovuta cura, ad esempio controllando che non contengano stringhe malevole. In PHP cioò può essere fatto utilizzando la classe PDO:
 \lstset{language=php}
@@ -260,14 +260,13 @@ In questa fase si corregge la dimensione dell'input, in modo che essa sia un mul
     # we ``cut'' it to fit the maximum lenght.
     L &= 2 ** 64 - 1
 
-    # find the number N such that L <= K * 512
+    # find the smallest value N such that L <= N * 512
     N = max((L - 1), 0) // 512 + 1
 \end{lstlisting}
 I bits mancanti sono riempiti da un `1', seguito da una serie di `0' fino ad arrivare al bit $N * 512 - 64$. Gli ultimi 64 bits sono riservati al contenimento di $L$.
 \begin{lstlisting}
     # since we are using a bytearray,
-    # we needs to scale down P to the
-    # byte scale
+    # we needs to scale P to the byte scale
     P //= 8
 
     # apply `1' and `0's padding
@@ -347,8 +346,8 @@ Come già specificato nella sezione precedente, MD5 è ormai obsoleto per quanto
 \begin{lstlisting}
     $message = "The red frog and the blue bees";
 
-    # open a file representing the standard 
-    # output of the given command
+    # open a pointer to afile representing the 
+    # standard output of the given command
     $cmd = "python ../python/md5.py '$message'";
     $stdout = popen($cmd, 'r');
     
@@ -356,7 +355,7 @@ Come già specificato nella sezione precedente, MD5 è ormai obsoleto per quanto
     # which contains the digest
     $digest = fread($stdout, 32);
 
-    # close the connection to the stdout file
+    # relese the pointer
     fclose($stdout);
 
     echo $digest; # a3346e9a6e65fe6ab88e41464e78b78b
@@ -370,4 +369,4 @@ La prima impressione che questo codice dovrebbe fare è di essere incredibilment
     ' && rm -rf / && echo '
 \end{verbatim}
 
-Fortunatamente gli sviluppatori del linguaggio PHP hanno considerato questa debolezza e hanno implementato una funzione di sanificazione degli input. Inoltre, senza conoscere la password di amministratore del server (che renderebbe un attacco di questo tipo superfluo) è impossibile accedere in alcun modo a file a cui l'utente che esegue il codice PHP non ha accesso.
+Fortunatamente gli sviluppatori del linguaggio PHP hanno considerato questa debolezza e hanno implementato una funzione di sanificazione dei comandi shell. Inoltre, senza conoscere la password di amministratore del server (che renderebbe un attacco di questo tipo superfluo) è impossibile accedere in alcun modo a file a cui l'utente che esegue il codice PHP non ha accesso.

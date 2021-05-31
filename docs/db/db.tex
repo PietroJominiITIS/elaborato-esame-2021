@@ -12,7 +12,7 @@
 \subsection{Ipotesi}
 
 \begin{itemize}
-    \item Non possono essere eliminati elementi singoli all'interno di una scatola, ma è necessario eliminare la scatola intera.
+    \item Non possono essere eliminati elementi singoli all'interno di una scatola, ma è necessario eliminare l'intera scatola.
 \end{itemize}
 
 \subsection{Mapping}
@@ -54,7 +54,7 @@ Tutte le tabelle sono nella forma normale di Boyce-Codd, in quanto tutti i campi
 
 \subsection{Tabelle enumerabili}
 
-Alcune tabelle hanno dei valori fissi ed enumerabili.
+Alcune tabelle hanno dei valori fissi ed enumerabili:
 
 \subsubsection{Transition status}
 \begin{center}
@@ -162,13 +162,13 @@ Per autenticare il login è necessario inserire una password, della quale solo i
 I link che richiedono funzioni non implementate redirigono ad una pagina che indica chiaramente lo stato di ``lavori in corso''. Alcune features sono mancanti ma non indicate da nessun link specifico:
 
 \paragraph{Modifica dei casi}
-Manca la possibilità di modificare i campi, la quale permetterebbe di fare uso dei campi di ``status'' e ``outcome''.
+Manca la possibilità di modificare i campi, che permetterebbe di fare uso dei campi ``status'' e ``outcome''.
 
 \paragraph{Informazioni aggiuntive}
 Al contrario che per gli items, non è al momento possibile vedere informazioni agginutive sui casi e sulle scatole.
 
 \paragraph{Sanificazione delle queries SQL}
-Non è stata implementata una corretta sanificazinoe delle queries SQL (approfondite alla sezione 4.3).
+Non è stata implementata una corretta sanificazinoe delle queries SQL (pratica approfondita alla sezione 4.3).
 
 \subsection{Grafica}
 L'aspetto grafico è stato curato con HTML e CSS personalizzato, consultabile nella cartella ``code/web/css''.
@@ -181,6 +181,6 @@ Per poter implementare un sistema di paginazione che permettesse la non ripetizi
     if ( in_array($page, $pages))
         require('../partials/' . $_GET['page'] . '.php');
 \end{lstlisting}
-che permette di indicare la pagina desiderata tramite il parametro URI ``page'' (eg. ?page=local) e, se la pagina richiesta è presente nella lista di pagine aturizzate, viene renderizzata. Ciò permette inoltre ai browser moderni applicare solo le nuove modifiche alla pagina HTML, velocizzando il caricamente e rendendo l'esperienza per l'utente più piacevole.
+che permette di indicare la pagina desiderata tramite il parametro URI ``page'' (eg. ?page=local) e, se la pagina richiesta è presente nella lista di pagine atorizzate, viene renderizzata. Ciò permette inoltre ai browser moderni di applicare solo le nuove modifiche alla pagina HTML, velocizzando il caricamente e rendendo l'esperienza per l'utente più piacevole.
 
 È necessario il controllo sulle pagine autorizzate in modo che l'utente non possa accedere a files arbitari sul disco.
