@@ -1,16 +1,3 @@
-\documentclass{article}
-
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-
-\begin{document}
-
-\tableofcontents
-
 \section{Infrastruttura di rete proposta}
 
 Data la relativa semplicità e centralità del sistema si consiglia l'utilizzo di un servizio IAAS, ad esempio AWS EC2.
@@ -122,13 +109,10 @@ encrypted tunnel.
 \subsubsection{Encrypted tunnel}
 SSH Creates encrypted tunnels (connections) where the communication between the two hosts is secure. Those are the steps it uses to do such:
 \begin{enumerate}
-    \item Both the server and clients have a public and private keys, used for an asymmetric
-          cryptographic algorithm (see more at section 4.2).
+    \item Both the server and clients have a public and private keys, used for an asymmetric cryptographic algorithm (eg. RSA).
     \item The client initiates the connection by contacting the server.
     \item The server sends to the client his public key.
-    \item The client generate a random sequence of bits and sends it to the server,
-          encrypted with the server's public key. The original string of bits is now used
-          as the key for a symmetric cryptographic algorithm.
+    \item The client generate a random sequence of bits and sends it to the server, encrypted with the server's public key. The original string of bits is now used as the key for a symmetric cryptographic algorithm (eg. DES).
 \end{enumerate}
 
 \section{Sicurezza della infrastruttura di rete proposta}
@@ -138,7 +122,7 @@ SSH Creates encrypted tunnels (connections) where the communication between the 
 \textit{Sebbene sia un protocollo di rete, quindi apaprtenente alla sezione 2, ho preferito descriverlo in questa sezione in quanto non è stato realmente utilizzato nella parte pratica dell'elaborato.}
 \vspace{1em}
 
-Il protocollo HTTP eredita dallo stack TCP/IP il problema della mancanza di sicurezza della connessione: essendo essa in chiaro, i messaggi sono intercettabili e modificabili. Per questo è solitamente usato il protocollo HTTPS (HTTP Secure) che combina il protocollo HTTP (approfondito alla sezione 2.1) con TTL.
+Il protocollo HTTP eredita dallo stack TCP/IP il problema della mancanza di sicurezza della connessione: essendo essa in chiaro, i messaggi sono intercettabili e modificabili. Per questo è solitamente usato il protocollo HTTPS (HTTP Secure) che combina il protocollo HTTP (approfondito alla sezione 3.1) con TTL.
 
 \subsubsection{TTL}
 
@@ -152,7 +136,7 @@ Il protocollo di handshake gestisce la fase di negoziazione in cui il client e i
 \paragraph{Record protocol}
 Il record protocol gestisce la cifratura dei messaggi secondo il seguente schema:
 \begin{center}
-    \includegraphics[scale=0.50]{../images/ttl.png}
+    \includegraphics[scale=0.50]{./images/ttl.png}
 \end{center}
 
 
@@ -302,8 +286,8 @@ I bits mancanti sono riempiti da un `1', seguito da una serie di `0' fino ad arr
 
 \paragraph{Merging} In questa fase avviene la ``confusione'' dei dati in input. Dopo averli divisi in chunks da 512 bit, per ognuno di essi si applica in 64 iterazioni, numerate da 0 a 63, il seguente schema:
 \begin{center}
-    \includegraphics[scale=0.50]{../images/md5.png}
-\end{center}
+    \includegraphics[scale=0.50]{./images/md5.png}
+\end{center}.
 La funzione F per l'iterazione i è così definita:
 \begin{equation*}
     F(B, C, D) = \left\{
@@ -387,5 +371,3 @@ La prima impressione che questo codice dovrebbe fare è di essere incredibilment
 \end{verbatim}
 
 Fortunatamente gli sviluppatori del linguaggio PHP hanno considerato questa debolezza e hanno implementato una funzione di sanificazione degli input. Inoltre, senza conoscere la password di amministratore del server (che renderebbe un attacco di questo tipo superfluo) è impossibile accedere in alcun modo a file a cui l'utente che esegue il codice PHP non ha accesso.
-
-\end{document}

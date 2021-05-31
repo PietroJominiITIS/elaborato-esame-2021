@@ -1,5 +1,12 @@
 \documentclass[12pt]{article}
 
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
 % meta
 \title{Sistema di distribuzione logistica per Tribunali}
 \author{Pietro Jomini}
@@ -13,5 +20,27 @@
 \maketitle
 \newpage
 \pagenumbering{arabic}
+
+\tableofcontents
+
+\newpage
+
+\section{Struttura dell'elaborato}
+\subsection{Suddivisione in cartelle}
+
+L'elaborato si suddivide nelle due cartelle principali ``Code'' e ``Docs''. La cartella ``Code'' contiene tutto il codice prodotto, mentre la cartella ``Docs'' contiene tutti i documenti scritti e i necessari schemi / immagini.
+
+\subsection{Struttura del codice}
+
+Il codice è diviso in cartelle per linguaggio di programmazione. La cartella ``python'' contiene l'implementazione dell'algoritmo MD5, la cartella ``sql'' lo script utilizzato per la creazione del database e le queries richieste, mentre la cartella ``web'' contiene l'applicazione web.
+
+\subsection{Struttura di questo documento}
+
+Le sezioni nel range $[2, 5]$ sono lo svolgimento della sezione 1 della traccia di svolgimento, mentre le sezioni dalla 6 sono in risposta alle sezioni successive.
+
+
+\newpage
+\input{network/network.tex}
+
 
 \end{document}
