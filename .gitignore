@@ -7,3 +7,6 @@ docs/**/*.fdb_latexmk
 docs/**/*.pdf
 docs/**/*.toc
 docs/**/*.out
+
+# built .zip
+build/*
