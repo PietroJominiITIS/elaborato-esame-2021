@@ -6,3 +6,4 @@ docs/**/*.synctex.gz
 docs/**/*.fdb_latexmk
 docs/**/*.pdf
 docs/**/*.toc
+docs/**/*.out
